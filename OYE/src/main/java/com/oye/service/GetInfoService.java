@@ -11,13 +11,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GetInfoService {
+
+
 	public ArrayList<String> getTwInfoLogic() throws IOException{
 		//jsoupでhtml取得・文字列化
 		Document document = Jsoup.connect("https://twittrend.jp/japan/").get();
 		String twText = document.body().toString();
-		//10位まで取得・リスト化
+		//5位まで取得・リスト化
 		ArrayList<String> twList = new ArrayList<>();
-		for(int i = 1; i < 11; i++){
+		for(int i = 1; i <= 5; i++){
 			Pattern p = Pattern.compile("(" + i + "\\.<.+>)(.+)</a");
 			Matcher m = p.matcher(twText);
 			m.find();

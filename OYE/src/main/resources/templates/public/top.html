@@ -15,19 +15,20 @@
 		</div>
 		<div class="container">
 			<div class="list-group" style="max-width: 400px;">
-				<a href="#" th:text=" | 1位：${twInfo[0]} |"
+				<a th:href="@{/external(keyword=${twInfo[0]})}" th:text=" | 1位：${twInfo[0]} |"
 					class="list-group-item list-group-item-action list-group-item-warning"
-					style="margin: 10px 0 0 30px;"></a> <a href="#"
+					style="margin: 10px 0 0 30px;"></a> <a th:href="@{/external(keyword=${twInfo[1]})}"
 					th:text=" | 2位：${twInfo[1]} |"
 					class="list-group-item list-group-item-action list-group-item-secondary"
-					style="margin: 10px 0 0 30px;"></a> <a href="#" th:text=" | 3位：${twInfo[2]} |"
+					style="margin: 10px 0 0 30px;"></a> <a  th:href="@{/external(keyword=${twInfo[2]})}" th:text=" | 3位：${twInfo[2]} |"
 					class="list-group-item list-group-item-action list-group-item-danger"
-					style="margin: 10px 0 0 30px;">3位：</a> <a href="#" th:text=" | 4位：${twInfo[3]} |"
+					style="margin: 10px 0 0 30px;">3位：</a> <a th:href="@{/external(keyword=${twInfo[3]})}" th:text=" | 4位：${twInfo[3]} |"
 					class="list-group-item list-group-item-action list-group-item-info"
-					style="margin: 10px 0 0 30px;">4位：</a> <a href="#" th:text=" | 5位：${twInfo[4]} |"
+					style="margin: 10px 0 0 30px;">4位：</a> <a th:href="@{/external(keyword=${twInfo[4]})}" th:text=" | 5位：${twInfo[4]} |"
 					class="list-group-item list-group-item-action list-group-item-success"
 					style="margin: 10px 0 150px 30px;">5位：</a>
 			</div>
+
 		</div>
 	</div>
 

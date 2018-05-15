@@ -1,6 +1,8 @@
 package com.oye.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,5 +49,9 @@ public class MainController {
 		return "registration/" + rs.registrationLogic(newName, newPass);
 	}
 
+	@GetMapping("/external")
+	public String toExternal(@RequestParam("keyword")String keyword) throws UnsupportedEncodingException{
 
+		return "redirect:https://twitter.com/search?q=" + URLEncoder.encode(keyword, "UTF-8") +  "&src=typd&lang=ja";
+	}
 }
