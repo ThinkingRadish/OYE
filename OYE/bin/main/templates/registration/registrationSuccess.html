@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/temp :: frag_head">
+<meta charset="UTF-8">
+<title>OYE</title>
+</head>
+<body>
+	<div th:replace="public/temp :: frag_nav"></div>
+	<div class="content"
+		style="text-align: center; color: green; margin-top: 100px;">
+		ユーザーが登録されました。 <br> <a class="btn btn-primary" href="/login/login"
+			role="button" style="margin-top: 100px;">ログイン画面へ</a>
+
+	</div>
+
+	<footer th:replace="public/temp :: frag_footer"></footer>
+	<div th:replace="public/temp :: frag_script"></div>
+</body>
+</html>

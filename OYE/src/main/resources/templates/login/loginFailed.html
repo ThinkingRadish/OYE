@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/temp :: frag_head">
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div th:replace="public/temp :: frag_nav"></div>
+	<div class="content"
+		style="text-align: center; color: red; margin-top: 100px;">
+		ログインに失敗しました。 <br> ユーザーが存在しない、あるいはユーザー名とパスワードの組み合わせが間違っています。 <br>
+		<a class="btn btn-warning" href="/login/login" role="button"
+			style="margin-top: 100px;">ログイン画面へ戻る</a>
+
+	</div>
+	<footer th:replace="public/temp :: frag_footer"></footer>
+	<div th:replace="public/temp :: frag_script"></div>
+</body>
+</html>

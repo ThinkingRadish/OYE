@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/temp :: frag_head">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="public/temp :: frag_nav"></div>
+	<div class="container">
+		<div class="twIcon" style="margin-top: 30px;">
+			<img src="../img/Twitter.png" width="50px" height="50px"
+				alt="Twitterのロゴ" style="float: left; margin-right: 10px;">
+			<p
+				style="font-family: fantasy; font-size: 25px; padding-top: 5px; color: #55acee; font-weight: bold;">Twitterトレンドランキング</p>
+		</div>
+		<div class="container">
+			<div class="list-group" style="max-width: 400px;">
+				<a href="#" th:text=" | 1位：${twInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-warning"
+					style="margin: 10px 0 0 30px;"></a> <a href="#"
+					th:text=" | 2位：${twInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary"
+					style="margin: 10px 0 0 30px;"></a> <a href="#" th:text=" | 3位：${twInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px;">3位：</a> <a href="#" th:text=" | 4位：${twInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px;">4位：</a> <a href="#" th:text=" | 5位：${twInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-success"
+					style="margin: 10px 0 150px 30px;">5位：</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div th:replace="public/temp :: frag_footer"></div>
+	<div th:replace="public/temp :: frag_script"></div>
+</body>
+</html>

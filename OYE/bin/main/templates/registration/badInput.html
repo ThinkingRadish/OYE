@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/temp :: frag_head">
+<meta charset="UTF-8">
+<title>OYE</title>
+</head>
+<body>
+	<div th:replace="public/temp :: frag_nav"></div>
+	<div class="content"
+		style="text-align: center; color: red; margin-top: 100px;">
+		ユーザー名およびパスワードは半角英数字4文字以上での入力が必要です。 <br> <a
+			class="btn btn-warning" href="/registration/RegisterNewUser"
+			role="button" style="margin-top: 100px;">新規ユーザー登録画面へ戻る</a>
+
+	</div>
+	<footer th:replace="public/temp :: frag_footer"></footer>
+	<div th:replace="public/temp :: frag_script"></div>
+</body>
+</html>

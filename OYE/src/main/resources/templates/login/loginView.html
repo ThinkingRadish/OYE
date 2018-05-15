@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/temp :: frag_head">
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="public/temp :: frag_nav"></div>
+	<div class="content">
+	<form th:action="@{/login/login}" method="post" >
+		<label for="username" style="color: #e8dfd7">ユーザー名</label>
+		<input id="username" type="text" placeholder="ユーザー名" name="username" required="required"/>
+		<label for="password" style="color: #e8dfd7">パスワード</label>
+		<input id="password" type="password" placeholder="パスワード" name="password" required="required"/>
+		<button type="submit">ログイン</button>
+	</form>
+</div>
+	<footer th:replace="public/temp :: frag_footer"></footer>
+	<div th:replace="public/temp :: frag_script"></div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+・db_role作成 properties_user変更
+
+・自動db&table作成？ properties_update
+
+・suppressWarning除去
+
+・レスポンシブの収納ボタン
+
+・todotext削除

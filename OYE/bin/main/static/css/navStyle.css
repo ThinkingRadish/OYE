@@ -1,0 +1,13 @@
+
+a.nav-item{
+	color: white !important;
+	font-size: 18px;
+	margin: auto 15px;
+}
+
+a.nav-item:hover{
+	color: #ff8040 !important;
+}
+
+
+
