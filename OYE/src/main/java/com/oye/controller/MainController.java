@@ -8,50 +8,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oye.service.GetInfoService;
-import com.oye.service.RegistrationService;
 
 @Controller
 public class MainController {
 	@Autowired
 	GetInfoService service;
-	@Autowired
-	RegistrationService rs;
 
 	@GetMapping("/public/top")
-	public String toTop(Model model) throws IOException{
+	public String toTop(Model model) throws IOException {
 		model.addAttribute("twInfo", service.getTwInfoLogic());
+		model.addAttribute("googleInfo", service.getGoogleInfoLogic());
 		return "public/top";
 	}
 
-	@GetMapping("/login/login")
-	public String toLogin(){
-		return "login/loginView";
+	@GetMapping("/external/tw")
+	public String toExternalTw(@RequestParam("keyword") String keyword) {
+		// 参照先サイトに接続出来なかった時
+		try {
+			return "redirect:https://twitter.com/search?q=" + URLEncoder.encode(keyword, "UTF-8") + "&src=typd&lang=ja";
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return "/public/error";
+		}
 	}
 
-	@GetMapping("/login/loginFailed")
-	public String toFailed(){
-		return "login/loginFailed";
-	}
-
-	@GetMapping("/registration/RegisterNewUser")
-	public String toCreateNewUser(){
-		return "registration/RegisterNewUser";
-	}
-
-	@RequestMapping(value="/registration/RegistrationResult", method=RequestMethod.POST)
-	public String toRegistrationResult(@RequestParam("newName")String newName,
-	@RequestParam("newPass")String newPass){
-		return "registration/" + rs.registrationLogic(newName, newPass);
-	}
-
-	@GetMapping("/external")
-	public String toExternal(@RequestParam("keyword")String keyword) throws UnsupportedEncodingException{
-
-		return "redirect:https://twitter.com/search?q=" + URLEncoder.encode(keyword, "UTF-8") +  "&src=typd&lang=ja";
+	@GetMapping("/external/google")
+	public String toExternalGoogle(@RequestParam("keyword") String keyword) {
+		// 参照先サイトに接続出来なかった時
+		try {
+			return "redirect:https://news.google.com/gn/news/search/section/q/" + URLEncoder.encode(keyword, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return "/public/error";
+		}
 	}
 }

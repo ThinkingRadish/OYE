@@ -27,4 +27,17 @@ public class GetInfoService {
 		}
 		return twList;
 	}
+
+	public String[] getGoogleInfoLogic() throws IOException{
+		//jsoupでhtml取得・文字列化
+		Document document = Jsoup.connect("https://trends.google.co.jp/trends/hottrends/atom/hourly?pn=p4").get();
+		String googleText = document.body().toString();
+		Pattern p = Pattern.compile(";!\\[CDATA\\[(.+),");
+		Matcher m = p.matcher(googleText);
+		m.find();
+		googleText = m.group(1);
+		String[] googleLists = googleText.split(", ", 0);
+
+		return googleLists;
+	}
 }
