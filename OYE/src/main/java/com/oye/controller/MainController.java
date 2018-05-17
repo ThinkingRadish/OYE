@@ -19,14 +19,15 @@ public class MainController {
 
 	@GetMapping("/public/top")
 	public String toTop(Model model) throws IOException {
+
 		model.addAttribute("twInfo", service.getTwInfoLogic());
 		model.addAttribute("googleInfo", service.getGoogleInfoLogic());
+		model.addAttribute("nhkInfo", service.getNHKInfoLogic());
 		return "public/top";
 	}
 
 	@GetMapping("/external/tw")
 	public String toExternalTw(@RequestParam("keyword") String keyword) {
-		// 参照先サイトに接続出来なかった時
 		try {
 			return "redirect:https://twitter.com/search?q=" + URLEncoder.encode(keyword, "UTF-8") + "&src=typd&lang=ja";
 		} catch (UnsupportedEncodingException e) {
@@ -35,14 +36,15 @@ public class MainController {
 		}
 	}
 
-	@GetMapping("/external/google")
-	public String toExternalGoogle(@RequestParam("keyword") String keyword) {
-		// 参照先サイトに接続出来なかった時
+	@GetMapping("/external/nhk")
+	public String toExternalNHK(@RequestParam("keyword") String keyword) {
 		try {
-			return "redirect:https://news.google.com/gn/news/search/section/q/" + URLEncoder.encode(keyword, "UTF-8");
+			return "redirect:https://www2.nhk.or.jp/news/nsearch/query.cgi?col=news&charset=utf-8&qi=3&qt=" + URLEncoder.encode(keyword, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return "/public/error";
 		}
 	}
+
+
 }

@@ -9,5 +9,9 @@ a.nav-item:hover{
 	color: #ff8040 !important;
 }
 
+.list-group-item{
+	box-shadow: 2px 2px 5px black;
+}
+
 
 

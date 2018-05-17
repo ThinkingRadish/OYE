@@ -10,14 +10,4 @@ public class EtcController {
 	public String toAboutThis() {
 		return "public/aboutThis";
 	}
-
-	@GetMapping("/public/aboutPrivacy")
-	public String toAboutPrivacy() {
-		return "public/aboutPrivacy";
-	}
-
-	@GetMapping("public/contact")
-	public String toContact() {
-		return "public/contact";
-	}
 }
