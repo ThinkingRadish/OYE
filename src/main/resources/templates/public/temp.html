@@ -20,7 +20,7 @@
 
 		<a class="navbar-brand" href="/public/top"
 			style="font-size: 28px; color: #ff9933; font-family: fantasy;">OpenYourEyes</a>
-		<button   type="button" class="navbar-toggler" data-toggle="collapse"
+		<button type="button" class="navbar-toggler" data-toggle="collapse"
 			data-target="#navbar" aria-controls="navbar" aria-expanded="false"
 			aria-label="ナビゲーションの切替" style="width: 56px;">
 			<span class="navbar-toggler-icon"></span>
@@ -40,11 +40,15 @@
 
 			<div class="copyright" style="font-size: 10px; color: white;">&copy;
 				OYE 2018</div>
+
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav ml-auto mr-auto">
-					<a class="nav-item nav-link" href="/public/aboutThis" style="font-size: 15px;">このサイトについて</a>
+					<a class="nav-item nav-link" href="/public/aboutThis"
+						style="font-size: 15px;">このサイトについて</a>
 				</div>
 			</div>
+			<div class="time" style="font-size: 10px; color: white;"
+				th:text="${time}"></div>
 			<button type="button" class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 				aria-expanded="false" aria-label="ナビゲーションの切替" style="width: 56px;">

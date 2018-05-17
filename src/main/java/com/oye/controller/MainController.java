@@ -23,6 +23,7 @@ public class MainController {
 		model.addAttribute("twInfo", service.getTwInfoLogic());
 		model.addAttribute("googleInfo", service.getGoogleInfoLogic());
 		model.addAttribute("nhkInfo", service.getNHKInfoLogic());
+		model.addAttribute("time", service.getTime());
 		return "public/top";
 	}
 
@@ -30,6 +31,16 @@ public class MainController {
 	public String toExternalTw(@RequestParam("keyword") String keyword) {
 		try {
 			return "redirect:https://twitter.com/search?q=" + URLEncoder.encode(keyword, "UTF-8") + "&src=typd&lang=ja";
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return "/public/error";
+		}
+	}
+
+	@GetMapping("/external/google")
+	public String toExternalGoogle(@RequestParam("keyword") String keyword) {
+		try {
+			return "redirect:https://www.google.co.jp/search?q=" + URLEncoder.encode(keyword, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return "/public/error";

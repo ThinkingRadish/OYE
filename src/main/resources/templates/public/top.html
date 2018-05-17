@@ -8,32 +8,48 @@
 	<div th:replace="public/temp :: frag_nav"></div>
 	<div class="container">
 
-		<div class="twIcon" style="margin-top: 30px;">
+		<div class="googleIcon" style="margin-top: 30px;">
 			<img src="../img/Google.png" width="100px" height="50px"
 				alt="Googleのロゴ" style="float: left; margin-right: 10px;">
 			<p
 				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #ea4335;">Hot検索ワード</p>
 		</div>
 
-		<div class="list-group" style="max-width: 400px;">
+		<div class="list-group col-sm-4" style="max-width: 400px; float: left; margin-right: 100px">
 			<a th:href="@{/external/google(keyword=${googleInfo[0]})}"
 				target="_blank" th:text=" | ${googleInfo[0]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0 30px;"></a> <a
+				style="margin: 10px 0px 0 30px; float: left;"></a> <a
 				th:href="@{/external/google(keyword=${googleInfo[1]})}"
 				target="_blank" th:text=" | ${googleInfo[1]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0 30px;"></a> <a
+				style="margin: 10px 0px 0 30px;"></a> <a
 				th:href="@{/external/google(keyword=${googleInfo[2]})}"
 				target="_blank" th:text=" | ${googleInfo[2]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0 30px;"></a> <a
+				style="margin: 10px 0px 0 30px;"></a> <a
 				th:href="@{/external/google(keyword=${googleInfo[3]})}"
 				target="_blank" th:text=" | ${googleInfo[3]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0 30px;"></a> <a
+				style="margin: 10px 0px 50px 30px;"></a>
+		</div>
+
+		<div class="list-group  col-sm-4" style="max-width: 400px;">
+			<a
 				th:href="@{/external/google(keyword=${googleInfo[4]})}"
 				target="_blank" th:text=" | ${googleInfo[4]} |"
+				class="list-group-item list-group-item-action list-group-item-danger"
+				style="margin: 10px 0px 0px 30px;"></a>
+			<a th:href="@{/external/google(keyword=${googleInfo[5]})}"
+				target="_blank" th:text=" | ${googleInfo[5]} |"
+				class="list-group-item list-group-item-action list-group-item-danger"
+				style="margin: 10px 0 0 30px; float: left;"></a> <a
+				th:href="@{/external/google(keyword=${googleInfo[6]})}"
+				target="_blank" th:text=" | ${googleInfo[6]} |"
+				class="list-group-item list-group-item-action list-group-item-danger"
+				style="margin: 10px 0 0 30px;"></a> <a
+				th:href="@{/external/google(keyword=${googleInfo[7]})}"
+				target="_blank" th:text=" | ${googleInfo[7]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
 				style="margin: 10px 0 50px 30px;"></a>
 		</div>
@@ -47,7 +63,7 @@
 				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #55acee; font-weight: bold;">トレンド</p>
 		</div>
 
-		<div class="list-group" style="max-width: 400px;">
+		<div class="list-group col-sm-4" style="max-width: 400px; float: left; margin-right: 100px">
 			<a th:href="@{/external/tw(keyword=${twInfo[0]})}" target="_blank"
 				th:text=" | ${twInfo[0]} |"
 				class="list-group-item list-group-item-action list-group-item-primary"
@@ -70,9 +86,32 @@
 				style="margin: 10px 0 50px 30px;"></a>
 		</div>
 
-		<div class="twIcon" style="margin-top: 30px;">
+		<div class="list-group col-sm-4" style="max-width: 400px; float: left; margin-right: 100px">
+			<a th:href="@{/external/tw(keyword=${twInfo[5]})}" target="_blank"
+				th:text=" | ${twInfo[5]} |"
+				class="list-group-item list-group-item-action list-group-item-primary"
+				style="margin: 10px 0 0 30px;"></a> <a
+				th:href="@{/external/tw(keyword=${twInfo[6]})}" target="_blank"
+				th:text=" | ${twInfo[6]} |"
+				class="list-group-item list-group-item-action list-group-item-primary"
+				style="margin: 10px 0 0 30px;"></a> <a
+				th:href="@{/external/tw(keyword=${twInfo[7]})}" target="_blank"
+				th:text=" | ${twInfo[7]} |"
+				class="list-group-item list-group-item-action list-group-item-primary"
+				style="margin: 10px 0 0 30px;"></a> <a
+				th:href="@{/external/tw(keyword=${twInfo[8]})}" target="_blank"
+				th:text=" | ${twInfo[8]} |"
+				class="list-group-item list-group-item-action list-group-item-primary"
+				style="margin: 10px 0 0 30px;"></a> <a
+				th:href="@{/external/tw(keyword=${twInfo[9]})}" target="_blank"
+				th:text=" | ${twInfo[9]} |"
+				class="list-group-item list-group-item-action list-group-item-primary"
+				style="margin: 10px 0 50px 30px;"></a>
+		</div>
+
+		<div class="nhkIcon" style="margin-top: 30px;">
 			<p
-				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: black;">NHK
+				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: black; clear: left">NHK
 				TOP NEWS</p>
 		</div>
 		<div class="list-group " style="max-width: 400px;">

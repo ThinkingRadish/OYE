@@ -2,9 +2,7 @@
 
 ・自動db&table作成？ properties_update
 
-//suppressWarning除去 ok
-
-//レスポンシブの収納ボタン ok
+・dbパスワード隠蔽
 
 ・topレイアウト調整
 
@@ -16,13 +14,13 @@
 
 ・サイトについて記載
 
-・個人情報記載
+//suppressWarning除去 ok
 
-・お問い合わせ記載
+//レスポンシブの収納ボタン ok
 
 //信頼性の高いニュース記載 ok nhk
 
-・更新時刻
+//更新時刻 ok
 
 
 

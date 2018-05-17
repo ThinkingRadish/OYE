@@ -1,6 +1,7 @@
 package com.oye.service;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +23,12 @@ public class GetInfoService {
 		return failedList;
 	}
 
+	public String getTime() {
+		LocalDateTime now = LocalDateTime.now();
+		return now.getYear() + "年" + now.getMonthValue() + "月" + now.getDayOfMonth() + ("日") + now.getHour() + "時"
+				+ now.getMinute() + "分取得";
+	}
+
 	// twitter
 	public ArrayList<String> getTwInfoLogic() {
 		// jsoupでhtml取得・文字列化
@@ -30,7 +37,7 @@ public class GetInfoService {
 			document = Jsoup.connect("https://twittrend.jp/japan/").get();
 			String twText = document.body().toString();
 			ArrayList<String> twList = new ArrayList<>();
-			for (int i = 1; i <= 5; i++) {
+			for (int i = 1; i <= 10; i++) {
 				Pattern p = Pattern.compile("(" + i + "\\.<.+>)(.+)</a");
 				Matcher m = p.matcher(twText);
 				m.find();
@@ -55,7 +62,7 @@ public class GetInfoService {
 			googleText = m.group(1);
 			String[] googles = googleText.split(", ", 0);
 			ArrayList<String> googleList = new ArrayList<>();
-			for (int i = 0; i < googles.length - 1; i++) {
+			for (int i = 0; i < googles.length; i++) {
 				googleList.add(googles[i]);
 			}
 			return googleList;
@@ -65,14 +72,14 @@ public class GetInfoService {
 		}
 	}
 
-	//nhk
-	public ArrayList<String> getNHKInfoLogic(){
+	// nhk
+	public ArrayList<String> getNHKInfoLogic() {
 		Element element;
 		try {
 			element = Jsoup.connect("http://www3.nhk.or.jp/rss/news/cat0.xml").get();
 			Elements elements = element.getElementsByTag("title");
 			ArrayList<String> nhkList = new ArrayList<>();
-			for(int i = 1; i <= 7; i++){
+			for (int i = 1; i <= 7; i++) {
 				nhkList.add(elements.get(i).text());
 			}
 			return nhkList;
