@@ -13,11 +13,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	UserEntityDetailsService ueds;
 
-//	@Bean
-//	public static NoOpPasswordEncoder passwordEncoder() {
-//	return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
-//	}
-
 	@Override
 	public void configure(HttpSecurity http) throws Exception{
 		http.formLogin().loginPage("/login/login").defaultSuccessUrl("/public/top").failureUrl("/login/loginFailed").permitAll();
