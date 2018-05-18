@@ -18,7 +18,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
 		th:fragment="frag_nav" style="width: 100%">
 
-		<a class="navbar-brand" href="/public/top"
+		<a class="navbar-brand" href="/top"
 			style="font-size: 28px; color: #ff9933; font-family: fantasy;">OpenYourEyes</a>
 		<button type="button" class="navbar-toggler" data-toggle="collapse"
 			data-target="#navbar" aria-controls="navbar" aria-expanded="false"
@@ -28,8 +28,18 @@
 		<div class="collapse navbar-collapse" id="navbar">
 			<div class="navbar-nav ml-auto">
 				<a class="nav-item nav-link" href="/registration/RegisterNewUser">新規ユーザー作成</a>
-				<a class="nav-item nav-link" href="#">MyWord</a> <a
-					class="nav-item nav-link" th:href="@{/login/login}">ログイン</a>
+				<a class="nav-item nav-link" href="#">MyWord</a>
+				<div th:unless="${isLogined}">
+					<a class="nav-item nav-link" th:href="@{/login/login}">ログイン</a>
+				</div>
+				<div th:if="${isLogined}">
+					<form class="form-inline ml-auto" role="form" id="logout"
+						th:action="@{/logout}" method="post"
+						style="height: 50px; margin: 0px; padding: 0px; width: 200px; padding-left: 0px; background-color: #343a40 !important;">
+						<button class="btn btn-sm ml-2 btn-outline-warning" type="submit"
+							style="margin-top: 0; width: 200px">ログアウト</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -43,7 +53,7 @@
 
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav ml-auto mr-auto">
-					<a class="nav-item nav-link" href="/public/aboutThis"
+					<a class="nav-item nav-link" href="/aboutThis"
 						style="font-size: 15px;">このサイトについて</a>
 				</div>
 			</div>

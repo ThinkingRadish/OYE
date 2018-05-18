@@ -6,13 +6,17 @@
 
 ・topレイアウト調整
 
-・ログイン　ログアウト
-
 ・myword機能
 
 ・非同期による高速化
 
 ・サイトについて記載
+
+・todotext削除
+
+
+
+//ログイン ログアウト ok
 
 //suppressWarning除去 ok
 
@@ -24,5 +28,3 @@
 
 
 
-
-・todotext削除
