@@ -15,9 +15,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class GetInfoService {
 
+	private String commonGetText(String url) {
+		Document document;
+		try {
+			document = Jsoup.connect(url).get();
+			return document.body().toString();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "nothing";
+		}
+
+	}
+
+	// コラム数により試行回数増減
 	public ArrayList<String> couldNotConnect() {
 		ArrayList<String> failedList = new ArrayList<>();
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 10; i++) {
 			failedList.add("情報を取得できませんでした。");
 		}
 		return failedList;
@@ -31,23 +44,19 @@ public class GetInfoService {
 
 	// twitter
 	public ArrayList<String> getTwInfoLogic() {
-		// jsoupでhtml取得・文字列化
-		Document document;
-		try {
-			document = Jsoup.connect("https://twittrend.jp/japan/").get();
-			String twText = document.body().toString();
-			ArrayList<String> twList = new ArrayList<>();
-			for (int i = 1; i <= 10; i++) {
-				Pattern p = Pattern.compile("(" + i + "\\.<.+>)(.+)</a");
-				Matcher m = p.matcher(twText);
-				m.find();
-				twList.add(m.group(2));
-			}
-			return twList;
-		} catch (IOException e) {
-			e.printStackTrace();
+		String text = commonGetText("https://twittrend.jp/japan/");
+		if(text.equals("nothing")){
 			return couldNotConnect();
 		}
+		ArrayList<String> twList = new ArrayList<>();
+		for (int i = 1; i <= 10; i++) {
+			Pattern p = Pattern.compile("(" + i + "\\.<.+>)(.+)</a");
+			Matcher m = p.matcher(text);
+			m.find();
+			twList.add(m.group(2));
+		}
+		return twList;
+
 	}
 
 	// google
@@ -56,8 +65,9 @@ public class GetInfoService {
 		try {
 			document = Jsoup.connect("https://trends.google.co.jp/trends/hottrends/atom/hourly?pn=p4").get();
 			String googleText = document.body().toString();
+			String text = commonGetText("https://trends.google.co.jp/trends/hottrends/atom/hourly?pn=p4");
 			Pattern p = Pattern.compile(";!\\[CDATA\\[(.+),");
-			Matcher m = p.matcher(googleText);
+			Matcher m = p.matcher(text);
 			m.find();
 			googleText = m.group(1);
 			String[] googles = googleText.split(", ", 0);
@@ -83,6 +93,24 @@ public class GetInfoService {
 				nhkList.add(elements.get(i).text());
 			}
 			return nhkList;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return couldNotConnect();
+		}
+	}
+
+	public ArrayList<String> getITmediaInfoLogic(String regex) {
+		try {
+			Document doc = Jsoup.connect("http://www.itmedia.co.jp/news/subtop/archive/").get();
+			String text = doc.body().toString();
+			Pattern p = Pattern.compile(regex);
+			Matcher m = p.matcher(text);
+			ArrayList<String> list = new ArrayList<>();
+			for (int i = 1; i <= 10; i++) {
+				m.find();
+				list.add(m.group(2));
+			}
+			return list;
 		} catch (IOException e) {
 			e.printStackTrace();
 			return couldNotConnect();

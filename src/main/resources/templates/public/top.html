@@ -4,7 +4,7 @@
 
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-color: #f4f4fb">
 	<div th:replace="public/temp :: frag_nav"></div>
 	<div class="container">
 
@@ -15,10 +15,11 @@
 				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #ea4335;">Hot検索ワード</p>
 		</div>
 
-		<div class="list-group col-sm-4" style="max-width: 400px; float: left; margin-right: 100px">
+		<div class="list-group col-sm-4"
+			style="max-width: 400px; float: left; margin-right: 100px">
 			<a th:href="@{/external/google(keyword=${googleInfo[0]})}"
 				target="_blank" th:text=" | ${googleInfo[0]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
+				class="list-group-item list-group-item-action list-group-item-danger dropdown"
 				style="margin: 10px 0px 0 30px; float: left;"></a> <a
 				th:href="@{/external/google(keyword=${googleInfo[1]})}"
 				target="_blank" th:text=" | ${googleInfo[1]} |"
@@ -31,16 +32,15 @@
 				th:href="@{/external/google(keyword=${googleInfo[3]})}"
 				target="_blank" th:text=" | ${googleInfo[3]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0px 50px 30px;"></a>
+				style="margin: 10px 0px 0px 30px;"></a>
 		</div>
 
 		<div class="list-group  col-sm-4" style="max-width: 400px;">
-			<a
-				th:href="@{/external/google(keyword=${googleInfo[4]})}"
+			<a th:href="@{/external/google(keyword=${googleInfo[4]})}"
 				target="_blank" th:text=" | ${googleInfo[4]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0px 0px 30px;"></a>
-			<a th:href="@{/external/google(keyword=${googleInfo[5]})}"
+				style="margin: 10px 0px 0px 30px;"></a> <a
+				th:href="@{/external/google(keyword=${googleInfo[5]})}"
 				target="_blank" th:text=" | ${googleInfo[5]} |"
 				class="list-group-item list-group-item-action list-group-item-danger"
 				style="margin: 10px 0 0 30px; float: left;"></a> <a
@@ -63,7 +63,8 @@
 				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #55acee; font-weight: bold;">トレンド</p>
 		</div>
 
-		<div class="list-group col-sm-4" style="max-width: 400px; float: left; margin-right: 100px">
+		<div class="list-group col-sm-4"
+			style="max-width: 400px; float: left; margin-right: 100px">
 			<a th:href="@{/external/tw(keyword=${twInfo[0]})}" target="_blank"
 				th:text=" | ${twInfo[0]} |"
 				class="list-group-item list-group-item-action list-group-item-primary"
@@ -83,10 +84,11 @@
 				th:href="@{/external/tw(keyword=${twInfo[4]})}" target="_blank"
 				th:text=" | ${twInfo[4]} |"
 				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 50px 30px;"></a>
+				style="margin: 10px 0 0px 30px;"></a>
 		</div>
 
-		<div class="list-group col-sm-4" style="max-width: 400px; float: left; margin-right: 100px">
+		<div class="list-group col-sm-4"
+			style="max-width: 400px; float: left; margin-right: 100px">
 			<a th:href="@{/external/tw(keyword=${twInfo[5]})}" target="_blank"
 				th:text=" | ${twInfo[5]} |"
 				class="list-group-item list-group-item-action list-group-item-primary"
@@ -111,41 +113,100 @@
 
 		<div class="nhkIcon" style="margin-top: 30px;">
 			<p
-				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: black; clear: left">NHK
+				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green; clear: left">NHK
 				TOP NEWS</p>
 		</div>
-		<div class="list-group " style="max-width: 400px;">
+		<div class="list-group col-sm-4"
+			style="max-width: 400px; float: left; margin-right: 100px">
 			<a th:href="@{/external/nhk(keyword=${nhkInfo[0]})}" target="_blank"
 				th:text=" | ${nhkInfo[0]} |"
-				class="list-group-item list-group-item-action border-dark"
+				class="list-group-item list-group-item-action list-group-item-success"
 				style="margin: 10px 0 0 30px;"></a> <a
 				th:href="@{/external/nhk(keyword=${nhkInfo[1]})}" target="_blank"
 				th:text=" | ${nhkInfo[1]} |"
-				class="list-group-item list-group-item-action border-dark"
+				class="list-group-item list-group-item-action list-group-item-success"
 				style="margin: 10px 0 0 30px;"></a> <a
 				th:href="@{/external/nhk(keyword=${nhkInfo[2]})}" target="_blank"
 				th:text=" | ${nhkInfo[2]} |"
-				class="list-group-item list-group-item-action border-dark"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/nhk(keyword=${nhkInfo[3]})}" target="_blank"
+				class="list-group-item list-group-item-action list-group-item-success"
+				style="margin: 10px 0 0 30px;"></a>
+		</div>
+
+		<div class="list-group col-sm-4"
+			style="max-width: 400px; float: left; margin-right: 100px">
+			<a th:href="@{/external/nhk(keyword=${nhkInfo[3]})}" target="_blank"
 				th:text=" | ${nhkInfo[3]} |"
-				class="list-group-item list-group-item-action border-dark"
+				class="list-group-item list-group-item-action list-group-item-success"
 				style="margin: 10px 0 0 30px;"></a> <a
 				th:href="@{/external/nhk(keyword=${nhkInfo[4]})}" target="_blank"
 				th:text=" | ${nhkInfo[4]} |"
-				class="list-group-item list-group-item-action border-dark"
-				style="margin: 10px 0 0px 30px;"></a>
-				<a
+				class="list-group-item list-group-item-action list-group-item-success"
+				style="margin: 10px 0 0px 30px;"></a> <a
 				th:href="@{/external/nhk(keyword=${nhkInfo[5]})}" target="_blank"
 				th:text=" | ${nhkInfo[5]} |"
-				class="list-group-item list-group-item-action border-dark"
-				style="margin: 10px 0 0px 30px;"></a>
-				<a
+				class="list-group-item list-group-item-action list-group-item-success"
+				style="margin: 10px 0 0px 30px;"></a> <a
 				th:href="@{/external/nhk(keyword=${nhkInfo[6]})}" target="_blank"
 				th:text=" | ${nhkInfo[6]} |"
-				class="list-group-item list-group-item-action border-dark"
-				style="margin: 10px 0 150px 30px;"></a>
+				class="list-group-item list-group-item-action list-group-item-success"
+				style="margin: 10px 0 50px 30px;"></a>
 		</div>
+
+		<div class="itMediaIcon" style="margin-top: 30px; clear: left">
+
+			<p
+				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: black; font-weight: bold;">IT media
+				NEWS</p>
+		</div>
+
+		<div class="list-group col-sm-4"
+			style="max-width: 400px; float: left; margin-right: 100px">
+			<a th:href="@{/external/itMedia(keyword=${itMediaLink[0]})}"
+				target="_blank" th:text=" | ${itMediaInfo[0]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[1]})}"
+				target="_blank" th:text=" | ${itMediaInfo[1]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px;height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[2]})}"
+				target="_blank" th:text=" | ${itMediaInfo[2]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px;height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[3]})}"
+				target="_blank" th:text=" | ${itMediaInfo[3]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px;height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[4]})}"
+				target="_blank" th:text=" | ${itMediaInfo[4]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0px 30px;height: 76px;"></a>
+		</div>
+
+		<div class="list-group col-sm-4"
+			style="max-width: 400px; float: left; margin-right: 100px">
+			<a th:href="@{/external/itMedia(keyword=${itMediaLink[5]})}"
+				target="_blank" th:text=" | ${itMediaInfo[5]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px;height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[6]})}"
+				target="_blank" th:text=" | ${itMediaInfo[6]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px;height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[7]})}"
+				target="_blank" th:text=" | ${itMediaInfo[7]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px;height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[8]})}"
+				target="_blank" th:text=" | ${itMediaInfo[8]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 0 30px;height: 76px;"></a> <a
+				th:href="@{/external/itMedia(keyword=${itMediaLink[9]})}"
+				target="_blank" th:text=" | ${itMediaInfo[9]} |"
+				class="list-group-item list-group-item-action list-group-item-dark active"
+				style="margin: 10px 0 150px 30px;height: 76px;"></a>
+		</div>
+
 
 
 	</div>

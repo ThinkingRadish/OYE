@@ -21,13 +21,17 @@ public class MainController {
 	@Autowired
 	AccountService accs;
 
-	@GetMapping("/top")
+	@GetMapping({"/top", "/"})
 	public String toTop(Model model, Principal principal) throws IOException {
 
 		model.addAttribute("twInfo", service.getTwInfoLogic());
 		model.addAttribute("googleInfo", service.getGoogleInfoLogic());
 		model.addAttribute("nhkInfo", service.getNHKInfoLogic());
+		model.addAttribute("itMediaInfo", service.getITmediaInfoLogic("(ml\">|</span>)([^<].+)</a><s"));
+		model.addAttribute("itMediaLink", service.getITmediaInfoLogic("<a (href)=\"//www.itmedia.co.jp/news/articles/(.+?)\">"));
+
 		model.addAttribute("time", service.getTime());
+
 		model.addAttribute("isLogined", accs.isLogined(principal));
 		return "public/top";
 	}
@@ -55,12 +59,17 @@ public class MainController {
 	@GetMapping("/external/nhk")
 	public String toExternalNHK(@RequestParam("keyword") String keyword) {
 		try {
-			return "redirect:https://www2.nhk.or.jp/news/nsearch/query.cgi?col=news&charset=utf-8&qi=3&qt=" + URLEncoder.encode(keyword, "UTF-8");
+			return "redirect:https://www2.nhk.or.jp/news/nsearch/query.cgi?col=news&charset=utf-8&qi=3&qt="
+					+ URLEncoder.encode(keyword, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return "/error";
 		}
 	}
 
+	@GetMapping("/external/itMedia")
+	public String toExternalItmedia(@RequestParam("keyword") String keyword) {
+		return "redirect:http://www.itmedia.co.jp/news/articles/" + keyword;
+	}
 
 }
