@@ -17,6 +17,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception{
 		http.formLogin().loginPage("/login/login").defaultSuccessUrl("/top").failureUrl("/login/loginFailed").permitAll();
 		http.logout().logoutSuccessUrl("/top").permitAll();
-		http.authorizeRequests().antMatchers("/css/**", "/img/**", "/js/**", "/**", "/login/**", "/registration/**").permitAll().anyRequest().authenticated();
+		http.authorizeRequests().antMatchers("/css/**", "/img/**", "/js/**","/private/**", "/public/**", "/external/**", "/login/**", "/registration/**").permitAll().anyRequest().authenticated();
 	}
 }

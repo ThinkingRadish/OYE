@@ -15,14 +15,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class GetInfoService {
 
-	private ArrayList<String> commonGetMatcher(String url, String regex) throws IOException {
+	private ArrayList<String> commonGetMatcher(String url, String regex, int groupN) throws IOException {
 		Document document = Jsoup.connect(url).get();
 		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(document.body().toString());
+		Matcher m = p.matcher(document.toString());
 		ArrayList<String> list = new ArrayList<>();
 		for (int i = 1; i <= 10; i++) {
 			m.find();
-			list.add(m.group(2));
+			list.add(m.group(groupN));
+		}
+		return list;
+	}
+
+	private ArrayList<String> commonGetByTag(String url, String tag, int item) throws IOException{
+		Element element = Jsoup.connect(url).get();
+		Elements elements = element.getElementsByTag(tag);
+		ArrayList<String> list = new ArrayList<>();
+		for (int i = 1; i <= item; i++) {
+			list.add(elements.get(i).text());
 		}
 		return list;
 	}
@@ -45,7 +55,7 @@ public class GetInfoService {
 	// twitter
 	public ArrayList<String> getTwInfoLogic() {
 		try {
-			return commonGetMatcher("https://twittrend.jp/japan/", "(\\d\\.<.+>)(.+)</a");
+			return commonGetMatcher("https://twittrend.jp/japan/", "(\\d\\.<.+>)(.+)</a", 2);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return couldNotConnect();
@@ -56,7 +66,7 @@ public class GetInfoService {
 	public ArrayList<String> getGoogleInfoLogic() {
 		try {
 			return commonGetMatcher("https://trends.google.co.jp/trends/hottrends/atom/hourly?pn=p4",
-					"(<a.+>)(.+)</a>");
+					"(<a.+>)(.+)</a>", 2);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return couldNotConnect();
@@ -66,25 +76,31 @@ public class GetInfoService {
 	// nhk
 	public ArrayList<String> getNHKInfoLogic() {
 		try {
-			Element element = Jsoup.connect("http://www3.nhk.or.jp/rss/news/cat0.xml").get();
-			Elements elements = element.getElementsByTag("title");
-			ArrayList<String> nhkList = new ArrayList<>();
-			for (int i = 1; i <= 7; i++) {
-				nhkList.add(elements.get(i).text());
-			}
-			return nhkList;
+			return commonGetByTag("http://www3.nhk.or.jp/rss/news/cat0.xml", "title", 6);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return couldNotConnect();
 		}
 	}
 
-	public ArrayList<String> getITmediaInfoLogic(String regex) {
+	public ArrayList<String> getMainichiInfoLogic(){
 		try {
-			return commonGetMatcher("http://www.itmedia.co.jp/news/subtop/archive/", regex);
+			return commonGetByTag("http://rss.rssad.jp/rss/mainichi/flash.rss", "title", 10);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return couldNotConnect();
 		}
 	}
+
+	public ArrayList<String> getMainichiLinkLogic(){
+		try {
+			return commonGetByTag("http://rss.rssad.jp/rss/mainichi/flash.rss", "Link", 10);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return couldNotConnect();
+		}
+	}
+
+
+
 }

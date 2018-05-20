@@ -4,221 +4,237 @@
 
 <title>Insert title here</title>
 </head>
-<body style="background-color: #f4f4fb">
+<body>
 	<div th:replace="public/temp :: frag_nav"></div>
 	<div class="container">
 
-		<div class="googleIcon" style="margin-top: 30px;">
-			<img src="../img/Google.png" width="100px" height="50px"
-				alt="Googleのロゴ" style="float: left; margin-right: 10px;">
-			<p
-				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #ea4335;">Hot検索ワード</p>
+		<div th:fragment="frag_google">
+			<div class="googleIcon" style="margin-top: 30px;">
+				<a href="https://www.google.co.jp/"><img src="../img/Google.png"
+					width="100px" height="50px" alt="Googleのロゴ"
+					style="float: left; margin-right: 10px;"></a>
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #ea4335;">
+					<a href="https://www.google.co.jp/"
+						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #ea4335; text-decoration: none;">Hot検索ワード</a>
+				</p>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/google(keyword=${googleInfo[0]})}"
+					target="_blank" th:text=" | ${googleInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-danger dropdown"
+					style="margin: 10px 0px 0 30px; float: left;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[1]})}"
+					target="_blank" th:text=" | ${googleInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0px 0 30px;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[2]})}"
+					target="_blank" th:text=" | ${googleInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0px 0 30px;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[3]})}"
+					target="_blank" th:text=" | ${googleInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0px 0px 30px;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[4]})}"
+					target="_blank" th:text=" | ${googleInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0px 0px 30px;"></a>
+			</div>
+
+			<div class="list-group  col-sm-4" style="max-width: 400px;">
+				<a th:href="@{/external/google(keyword=${googleInfo[5]})}"
+					target="_blank" th:text=" | ${googleInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; float: left;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[6]})}"
+					target="_blank" th:text=" | ${googleInfo[6]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[7]})}"
+					target="_blank" th:text=" | ${googleInfo[7]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0px 30px;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[8]})}"
+					target="_blank" th:text=" | ${googleInfo[8]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0px 30px;"></a> <a
+					th:href="@{/external/google(keyword=${googleInfo[9]})}"
+					target="_blank" th:text=" | ${googleInfo[9]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 100px 30px;"></a>
+			</div>
 		</div>
 
-		<div class="list-group col-sm-4"
-			style="max-width: 400px; float: left; margin-right: 100px">
-			<a th:href="@{/external/google(keyword=${googleInfo[0]})}"
-				target="_blank" th:text=" | ${googleInfo[0]} |"
-				class="list-group-item list-group-item-action list-group-item-danger dropdown"
-				style="margin: 10px 0px 0 30px; float: left;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[1]})}"
-				target="_blank" th:text=" | ${googleInfo[1]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0px 0 30px;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[2]})}"
-				target="_blank" th:text=" | ${googleInfo[2]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0px 0 30px;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[3]})}"
-				target="_blank" th:text=" | ${googleInfo[3]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0px 0px 30px;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[4]})}"
-				target="_blank" th:text=" | ${googleInfo[4]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0px 0px 30px;"></a>
+		<div th:fragment="frag_twitter">
+			<div class="twIcon" style="margin-top: 30px;">
+				<a href="https://twitter.com"><img src="../img/Twitter.png"
+					width="50px" height="50px" alt="Twitterのロゴ"
+					style="float: left; margin-right: 10px;"></a>
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #55acee; font-weight: bold;">
+					<a href="https://twitter.com"
+						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #55acee; font-weight: bold; text-decoration: none;">トレンド</a>
+				</p>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/tw(keyword=${twInfo[0]})}" target="_blank"
+					th:text=" | ${twInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[1]})}" target="_blank"
+					th:text=" | ${twInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[2]})}" target="_blank"
+					th:text=" | ${twInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[3]})}" target="_blank"
+					th:text=" | ${twInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[4]})}" target="_blank"
+					th:text=" | ${twInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0px 30px;"></a>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/tw(keyword=${twInfo[5]})}" target="_blank"
+					th:text=" | ${twInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[6]})}" target="_blank"
+					th:text=" | ${twInfo[6]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[7]})}" target="_blank"
+					th:text=" | ${twInfo[7]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[8]})}" target="_blank"
+					th:text=" | ${twInfo[8]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 0 30px;"></a> <a
+					th:href="@{/external/tw(keyword=${twInfo[9]})}" target="_blank"
+					th:text=" | ${twInfo[9]} |"
+					class="list-group-item list-group-item-action list-group-item-primary"
+					style="margin: 10px 0 150px 30px;"></a>
+			</div>
 		</div>
 
-		<div class="list-group  col-sm-4" style="max-width: 400px;">
-			<a th:href="@{/external/google(keyword=${googleInfo[5]})}"
-				target="_blank" th:text=" | ${googleInfo[5]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0 30px; float: left;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[6]})}"
-				target="_blank" th:text=" | ${googleInfo[6]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[7]})}"
-				target="_blank" th:text=" | ${googleInfo[7]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0px 30px;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[8]})}"
-				target="_blank" th:text=" | ${googleInfo[8]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0px 30px;"></a> <a
-				th:href="@{/external/google(keyword=${googleInfo[9]})}"
-				target="_blank" th:text=" | ${googleInfo[9]} |"
-				class="list-group-item list-group-item-action list-group-item-danger"
-				style="margin: 10px 0 0px 30px;"></a>
+		<div th:fragment="frag_nhk">
+			<div class="nhkIcon" style="margin-top: 30px;">
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green; clear: left">
+					<a href="https://www3.nhk.or.jp/news/"
+						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green; clear: left; text-decoration: none;">NHK
+						TOP NEWS</a>
+				</p>
+			</div>
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/nhk(keyword=${nhkInfo[0]})}" target="_blank"
+					th:text=" | ${nhkInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-success"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/nhk(keyword=${nhkInfo[1]})}" target="_blank"
+					th:text=" | ${nhkInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-success"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/nhk(keyword=${nhkInfo[2]})}" target="_blank"
+					th:text=" | ${nhkInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-success"
+					style="margin: 10px 0 0 30px; height: 60px"></a>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/nhk(keyword=${nhkInfo[3]})}" target="_blank"
+					th:text=" | ${nhkInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-success"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/nhk(keyword=${nhkInfo[4]})}" target="_blank"
+					th:text=" | ${nhkInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-success"
+					style="margin: 10px 0 0px 30px; height: 60px"></a> <a
+					th:href="@{/external/nhk(keyword=${nhkInfo[5]})}" target="_blank"
+					th:text=" | ${nhkInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-success"
+					style="margin: 10px 0 150px 30px; height: 60px"></a>
+			</div>
 		</div>
 
+		<div th:fragment="frag_mainichi">
+			<div class="mainichiIcon" style="margin-top: 30px; clear: left">
+				<a href="https://mainichi.jp/"><img
+					src="../img/mainichi (1).jpg" width="200px" height="50px"
+					alt="毎日新聞のロゴ" style="float: left; margin-right: 10px;"></a>
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold;">
+					<a href="https://mainichi.jp/"
+						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold; text-decoration: none;">
+						ニュース速報（総合）</a>
+				</p>
+			</div>
 
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/mainichi(keyword=${mainichiLink[0]})}"
+					target="_blank" th:text=" | ${mainichiInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[1]})}"
+					target="_blank" th:text=" | ${mainichiInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[2]})}"
+					target="_blank" th:text=" | ${mainichiInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[3]})}"
+					target="_blank" th:text=" | ${mainichiInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[4]})}"
+					target="_blank" th:text=" | ${mainichiInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0px 30px; height: 60px"></a>
+			</div>
 
-		<div class="twIcon" style="margin-top: 30px;">
-			<img src="../img/Twitter.png" width="50px" height="50px"
-				alt="Twitterのロゴ" style="float: left; margin-right: 10px;">
-			<p
-				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #55acee; font-weight: bold;">トレンド</p>
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/mainichi(keyword=${mainichiLink[5]})}"
+					target="_blank" th:text=" | ${mainichiInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[6]})}"
+					target="_blank" th:text=" | ${mainichiInfo[6]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[7]})}"
+					target="_blank" th:text=" | ${mainichiInfo[7]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[8]})}"
+					target="_blank" th:text=" | ${mainichiInfo[8]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/mainichi(keyword=${mainichiLink[9]})}"
+					target="_blank" th:text=" | ${mainichiInfo[9]} |"
+					class="list-group-item list-group-item-action list-group-item-info"
+					style="margin: 10px 0 150px 30px; height: 60px"></a>
+			</div>
 		</div>
-
-		<div class="list-group col-sm-4"
-			style="max-width: 400px; float: left; margin-right: 100px">
-			<a th:href="@{/external/tw(keyword=${twInfo[0]})}" target="_blank"
-				th:text=" | ${twInfo[0]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[1]})}" target="_blank"
-				th:text=" | ${twInfo[1]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[2]})}" target="_blank"
-				th:text=" | ${twInfo[2]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[3]})}" target="_blank"
-				th:text=" | ${twInfo[3]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[4]})}" target="_blank"
-				th:text=" | ${twInfo[4]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0px 30px;"></a>
-		</div>
-
-		<div class="list-group col-sm-4"
-			style="max-width: 400px; float: left; margin-right: 100px">
-			<a th:href="@{/external/tw(keyword=${twInfo[5]})}" target="_blank"
-				th:text=" | ${twInfo[5]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[6]})}" target="_blank"
-				th:text=" | ${twInfo[6]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[7]})}" target="_blank"
-				th:text=" | ${twInfo[7]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[8]})}" target="_blank"
-				th:text=" | ${twInfo[8]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/tw(keyword=${twInfo[9]})}" target="_blank"
-				th:text=" | ${twInfo[9]} |"
-				class="list-group-item list-group-item-action list-group-item-primary"
-				style="margin: 10px 0 50px 30px;"></a>
-		</div>
-
-		<div class="nhkIcon" style="margin-top: 30px;">
-			<p
-				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green; clear: left">NHK
-				TOP NEWS</p>
-		</div>
-		<div class="list-group col-sm-4"
-			style="max-width: 400px; float: left; margin-right: 100px">
-			<a th:href="@{/external/nhk(keyword=${nhkInfo[0]})}" target="_blank"
-				th:text=" | ${nhkInfo[0]} |"
-				class="list-group-item list-group-item-action list-group-item-success"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/nhk(keyword=${nhkInfo[1]})}" target="_blank"
-				th:text=" | ${nhkInfo[1]} |"
-				class="list-group-item list-group-item-action list-group-item-success"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/nhk(keyword=${nhkInfo[2]})}" target="_blank"
-				th:text=" | ${nhkInfo[2]} |"
-				class="list-group-item list-group-item-action list-group-item-success"
-				style="margin: 10px 0 0 30px;"></a>
-		</div>
-
-		<div class="list-group col-sm-4"
-			style="max-width: 400px; float: left; margin-right: 100px">
-			<a th:href="@{/external/nhk(keyword=${nhkInfo[3]})}" target="_blank"
-				th:text=" | ${nhkInfo[3]} |"
-				class="list-group-item list-group-item-action list-group-item-success"
-				style="margin: 10px 0 0 30px;"></a> <a
-				th:href="@{/external/nhk(keyword=${nhkInfo[4]})}" target="_blank"
-				th:text=" | ${nhkInfo[4]} |"
-				class="list-group-item list-group-item-action list-group-item-success"
-				style="margin: 10px 0 0px 30px;"></a> <a
-				th:href="@{/external/nhk(keyword=${nhkInfo[5]})}" target="_blank"
-				th:text=" | ${nhkInfo[5]} |"
-				class="list-group-item list-group-item-action list-group-item-success"
-				style="margin: 10px 0 0px 30px;"></a> <a
-				th:href="@{/external/nhk(keyword=${nhkInfo[6]})}" target="_blank"
-				th:text=" | ${nhkInfo[6]} |"
-				class="list-group-item list-group-item-action list-group-item-success"
-				style="margin: 10px 0 50px 30px;"></a>
-		</div>
-
-		<div class="itMediaIcon" style="margin-top: 30px; clear: left">
-
-			<p
-				style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: black; font-weight: bold;">IT
-				media NEWS</p>
-		</div>
-
-		<div class="list-group col-sm-4"
-			style="max-width: 400px; float: left; margin-right: 100px">
-			<a th:href="@{/external/itMedia(keyword=${itMediaLink[0]})}"
-				target="_blank" th:text=" | ${itMediaInfo[0]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[1]})}"
-				target="_blank" th:text=" | ${itMediaInfo[1]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[2]})}"
-				target="_blank" th:text=" | ${itMediaInfo[2]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[3]})}"
-				target="_blank" th:text=" | ${itMediaInfo[3]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[4]})}"
-				target="_blank" th:text=" | ${itMediaInfo[4]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0px 30px; height: 76px;"></a>
-		</div>
-
-		<div class="list-group col-sm-4"
-			style="max-width: 400px; float: left; margin-right: 100px">
-			<a th:href="@{/external/itMedia(keyword=${itMediaLink[5]})}"
-				target="_blank" th:text=" | ${itMediaInfo[5]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[6]})}"
-				target="_blank" th:text=" | ${itMediaInfo[6]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[7]})}"
-				target="_blank" th:text=" | ${itMediaInfo[7]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[8]})}"
-				target="_blank" th:text=" | ${itMediaInfo[8]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 0 30px; height: 76px;"></a> <a
-				th:href="@{/external/itMedia(keyword=${itMediaLink[9]})}"
-				target="_blank" th:text=" | ${itMediaInfo[9]} |"
-				class="list-group-item list-group-item-action list-group-item-dark active"
-				style="margin: 10px 0 150px 30px; height: 76px;"></a>
-		</div>
-
-
-
 	</div>
 
+<div th:fragment="frag_dummy"></div>
 
 	<div th:replace="public/temp :: frag_footer"></div>
 	<div th:replace="public/temp :: frag_script"></div>

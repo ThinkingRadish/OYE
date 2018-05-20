@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/temp :: frag_head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="public/temp :: frag_nav"></div>
+
+	<div class="container">
+		<div class="message"
+			style="text-align: center; font-weight: bold; color: green; margin-top: 50px;">
+			コンテンツの表示順を変更できます。<br> 非表示にしたい場合は「表示しない」を選択してください。
+		</div>
+		<form th:action="@{/public/myEyesResult}" method="post"
+			style="text-align: center; margin: auto; width: 200px">
+			<div class="googleIcon"
+				style="margin: 30px auto 0 auto; text-align: center;">
+				<img src="../img/Google.png" width="100px" height="50px"
+					alt="Googleのロゴ">
+			</div>
+
+			<select name="selectGoogle" class="custom-select">
+				<option value="first">1番目</option>
+				<option value="second">2番目</option>
+				<option value="third">3番目</option>
+				<option value="forth">4番目</option>
+				<option value="dummy">表示しない</option>
+			</select>
+
+			<div class="twitterIcon"
+				style="margin: 30px auto 0 auto; text-align: center;">
+				<img src="../img/Twitter.png" width="50px" height="50px"
+					alt="Twitterのロゴ">
+			</div>
+
+			<select name="selectTwitter" class="custom-select">
+				<option value="first">1番目</option>
+				<option value="second">2番目</option>
+				<option value="third">3番目</option>
+				<option value="forth">4番目</option>
+				<option value="dummy">表示しない</option>
+			</select>
+
+			<div class="nhkIcon"
+				style="margin: 30px auto 0 auto; text-align: center;">
+				<div
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green;">NHK</div>
+			</div>
+
+			<select name="
+					selectNHK" class="custom-select">
+				<option value="first">1番目</option>
+				<option value="second">2番目</option>
+				<option value="third">3番目</option>
+				<option value="forth">4番目</option>
+				<option value="dummy">表示しない</option>
+			</select>
+
+			<div class="mainichiIcon"
+				style="margin: 30px auto 0px auto; text-align: center;">
+				<img src="../img/mainichi (1).jpg" width="200px" height="50px"
+					alt="Googleのロゴ">
+			</div>
+
+			<select name="selectMainichi" class="custom-select">
+				<option value="first">1番目</option>
+				<option value="second">2番目</option>
+				<option value="third">3番目</option>
+				<option value="forth">4番目</option>
+				<option value="dummy">表示しない</option>
+			</select>
+
+			<button type="submit" class="btn btn-primary"
+				style="margin-bottom: 150px; margin-top: 100px; width: 200px">保存</button>
+		</form>
+	</div>
+	<div th:replace="public/temp :: frag_footer"></div>
+	<div th:replace="public/temp :: frag_script"></div>
+</body>
+</html>

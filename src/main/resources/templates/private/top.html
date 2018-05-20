@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/temp :: frag_head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="public/temp :: frag_nav"></div>
+
+	<div th:replace="public/top :: ${first}"></div>
+
+	<div th:replace="public/top :: ${second}"></div>
+
+	<div th:replace="public/top :: ${third}"></div>
+
+	<div th:replace="public/top :: ${forth}"></div>
+
+
+
+	<div th:replace="public/temp :: frag_footer"></div>
+	<div th:replace="public/temp :: frag_script"></div>
+</body>
+</html>
