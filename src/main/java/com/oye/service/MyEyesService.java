@@ -16,6 +16,7 @@ public class MyEyesService {
 
 	public boolean isOrderValid(int google, int tw, int nhk, int mai) {
 		int[] order = { google, tw, nhk, mai };
+		//重複チェック
 		for (int i = 0; i < order.length; i++) {
 			for (int j = 0; j < order.length; j++) {
 				if (i == j) {
@@ -40,6 +41,8 @@ public class MyEyesService {
 		int twitter;
 		int nhk;
 		int mainichi;
+
+		//新規ユーザー用デフォルトレイアウト読み込み
 		try{
 			google = entity.getGoogle();
 			twitter = entity.getTwitter();
@@ -63,16 +66,17 @@ public class MyEyesService {
 			for (int j = 0; j < orderI.length; j++) {
 
 				if (orderI[j] == i) {
+					//「表示しない」の値は0 空のdummyfragmentをリストの最初に加える。
 					if(i == 0){
 						list.add(orderS[orderS.length-1]);
 						continue;
 					}
+					//値の順番に対応するフラグメントをリストに加える
 					switch(j){
 					case 0: list.add(orderS[0]);break;
 					case 1: list.add(orderS[1]);break;
 					case 2: list.add(orderS[2]);break;
 					case 3: list.add(orderS[3]);break;
-					case 4: list.add(orderS[4]);break;
 					}
 				}
 			}
