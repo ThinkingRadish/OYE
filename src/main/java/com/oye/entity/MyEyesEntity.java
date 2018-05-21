@@ -14,17 +14,19 @@ public class MyEyesEntity {
 	private int twitter;
 	private int nhk;
 	private int mainichi;
+	private int asahi;
 
 	public MyEyesEntity() {
 
 	}
 
-	public MyEyesEntity(String username, int google, int twitter, int nhk, int mainichi){
+	public MyEyesEntity(String username, int google, int twitter, int nhk, int mainichi, int asahi){
 		this.username = username;
 		this.google = google;
 		this.twitter = twitter;
 		this.nhk = nhk;
 		this.mainichi = mainichi;
+		this.asahi = asahi;
 	}
 
 	public String getUsername() {
@@ -66,6 +68,16 @@ public class MyEyesEntity {
 	public void setMainichi(int mainichi) {
 		this.mainichi = mainichi;
 	}
+
+	public int getAsahi() {
+		return asahi;
+	}
+
+	public void setAsahi(int asahi) {
+		this.asahi = asahi;
+	}
+
+
 
 
 

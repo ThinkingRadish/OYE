@@ -10,12 +10,12 @@
 
 		<div th:fragment="frag_google" style="clear: left">
 			<div class="googleIcon" style="margin-top: 30px;">
-				<a href="https://www.google.co.jp/"><img src="../img/Google.png"
-					width="100px" height="50px" alt="Googleのロゴ"
+				<a href="https://www.google.co.jp/" target="_blank"><img
+					src="../img/Google.png" width="100px" height="50px" alt="Googleのロゴ"
 					style="float: left; margin-right: 10px;"></a>
 				<p
 					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #ea4335;">
-					<a href="https://www.google.co.jp/"
+					<a href="https://www.google.co.jp/" target="_blank"
 						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #ea4335; text-decoration: none;">Hot検索ワード</a>
 				</p>
 			</div>
@@ -70,12 +70,12 @@
 
 		<div th:fragment="frag_twitter" style="clear: left">
 			<div class="twIcon" style="margin-top: 30px;">
-				<a href="https://twitter.com"><img src="../img/Twitter.png"
-					width="50px" height="50px" alt="Twitterのロゴ"
-					style="float: left; margin-right: 10px;"></a>
+				<a href="https://twitter.com" target="_blank"><img
+					src="../img/Twitter.png" width="50px" height="50px"
+					alt="Twitterのロゴ" style="float: left; margin-right: 10px;"></a>
 				<p
 					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #55acee; font-weight: bold;">
-					<a href="https://twitter.com"
+					<a href="https://twitter.com" target="_blank"
 						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #55acee; font-weight: bold; text-decoration: none;">トレンド</a>
 				</p>
 			</div>
@@ -133,7 +133,7 @@
 			<div class="nhkIcon" style="margin-top: 30px;">
 				<p
 					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green; clear: left">
-					<a href="https://www3.nhk.or.jp/news/"
+					<a href="https://www3.nhk.or.jp/news/" target="_blank"
 						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green; clear: left; text-decoration: none;">NHK
 						TOP NEWS</a>
 				</p>
@@ -173,12 +173,12 @@
 
 		<div th:fragment="frag_mainichi">
 			<div class="mainichiIcon" style="margin-top: 30px; clear: left">
-				<a href="https://mainichi.jp/"><img
+				<a href="https://mainichi.jp/" target="_blank"><img
 					src="../img/mainichi (1).jpg" width="200px" height="50px"
 					alt="毎日新聞のロゴ" style="float: left; margin-right: 10px;"></a>
 				<p
 					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold;">
-					<a href="https://mainichi.jp/"
+					<a href="https://mainichi.jp/" target="_blank"
 						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold; text-decoration: none;">
 						ニュース速報（総合）</a>
 				</p>
@@ -232,9 +232,71 @@
 					style="margin: 10px 0 150px 30px; height: 60px"></a>
 			</div>
 		</div>
+
+		<div th:fragment="frag_asahi">
+			<div class="asahiIcon" style="margin-top: 30px; clear: left">
+				<a href="https://www.asahi.com/" target="_blank"><img
+					src="../img/asahi.jpg" width="200px" height="50px" alt="朝日新聞のロゴ"
+					style="float: left; margin-right: 10px;"></a>
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold;">
+					<a href="https://www.asahi.com/" target="_blank"
+						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: red; font-weight: bold; text-decoration: none;">
+						デジタル速報ニュース</a>
+				</p>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/asahi(keyword=${asahiLink[0]})}"
+					target="_blank" th:text=" | ${asahiInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[1]})}"
+					target="_blank" th:text=" | ${asahiInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[2]})}"
+					target="_blank" th:text=" | ${asahiInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[3]})}"
+					target="_blank" th:text=" | ${asahiInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[4]})}"
+					target="_blank" th:text=" | ${asahiInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0px 30px; height: 60px"></a>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/asahi(keyword=${asahiLink[5]})}"
+					target="_blank" th:text=" | ${asahiInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[6]})}"
+					target="_blank" th:text=" | ${asahiInfo[6]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[7]})}"
+					target="_blank" th:text=" | ${asahiInfo[7]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[8]})}"
+					target="_blank" th:text=" | ${asahiInfo[8]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/asahi(keyword=${asahiLink[9]})}"
+					target="_blank" th:text=" | ${asahiInfo[9]} |"
+					class="list-group-item list-group-item-action list-group-item-danger"
+					style="margin: 10px 0 150px 30px; height: 60px"></a>
+			</div>
+		</div>
 	</div>
 
-<div th:fragment="frag_dummy"></div>
+	<div th:fragment="frag_dummy"></div>
 
 	<div th:replace="public/temp :: frag_footer"></div>
 	<div th:replace="public/temp :: frag_script"></div>

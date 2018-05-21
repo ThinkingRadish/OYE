@@ -101,6 +101,24 @@ public class GetInfoService {
 		}
 	}
 
+	public ArrayList<String> getAsahiInfoLogic(){
+		try {
+			return commonGetByTag("http://rss.asahi.com/rss/asahi/newsheadlines.rdf", "title", 10);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return couldNotConnect();
+		}
+	}
+
+	public ArrayList<String> getAsahiLinkLogic(){
+		try {
+			return commonGetByTag("http://rss.asahi.com/rss/asahi/newsheadlines.rdf", "Link", 10);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return couldNotConnect();
+		}
+	}
+
 
 
 }

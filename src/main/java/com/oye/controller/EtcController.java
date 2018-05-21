@@ -58,4 +58,9 @@ public class EtcController {
 	public String toExternalMainichi(@RequestParam("keyword") String keyword) {
 		return "redirect:" + keyword;
 	}
+
+	@GetMapping("/external/asahi")
+	public String toExternalAsahi(@RequestParam("keyword") String keyword){
+		return "redirect:" + keyword;
+	}
 }

@@ -28,10 +28,17 @@ public class MainController {
 	public String toTop(Model model, Principal principal){
 
 		model.addAttribute("twInfo", service.getTwInfoLogic());
+
 		model.addAttribute("googleInfo", service.getGoogleInfoLogic());
+
 		model.addAttribute("nhkInfo", service.getNHKInfoLogic());
+
 		model.addAttribute("mainichiLink", service.getMainichiLinkLogic());
 		model.addAttribute("mainichiInfo", service.getMainichiInfoLogic());
+
+		model.addAttribute("asahiInfo", service.getAsahiInfoLogic());
+		model.addAttribute("asahiLink", service.getAsahiLinkLogic());
+
 
 		model.addAttribute("time", service.getTime());
 
@@ -46,6 +53,7 @@ public class MainController {
 			model.addAttribute("second", list.get(1));
 			model.addAttribute("third", list.get(2));
 			model.addAttribute("forth", list.get(3));
+			model.addAttribute("fifth", list.get(4));
 			return "private/top";
 		}else{
 			return "public/top";

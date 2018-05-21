@@ -14,8 +14,8 @@ public class MyEyesService {
 	@Autowired
 	MyEyesEntityRepository meeRepository;
 
-	public boolean isOrderValid(int google, int tw, int nhk, int mai) {
-		int[] order = { google, tw, nhk, mai };
+	public boolean isOrderValid(int google, int tw, int nhk, int mai, int asahi) {
+		int[] order = { google, tw, nhk, mai, asahi};
 		//重複チェック
 		for (int i = 0; i < order.length; i++) {
 			for (int j = 0; j < order.length; j++) {
@@ -30,8 +30,8 @@ public class MyEyesService {
 		return true;
 	}
 
-	public void registerMyEyes(String username, int google, int twitter, int nhk, int mai) {
-		MyEyesEntity entity = new MyEyesEntity(username, google, twitter, nhk, mai);
+	public void registerMyEyes(String username, int google, int twitter, int nhk, int mai, int asahi) {
+		MyEyesEntity entity = new MyEyesEntity(username, google, twitter, nhk, mai, asahi);
 		meeRepository.save(entity);
 	}
 
@@ -41,6 +41,7 @@ public class MyEyesService {
 		int twitter;
 		int nhk;
 		int mainichi;
+		int asahi;
 
 		//新規ユーザー用デフォルトレイアウト読み込み
 		try{
@@ -48,18 +49,20 @@ public class MyEyesService {
 			twitter = entity.getTwitter();
 			nhk = entity.getNhk();
 			mainichi = entity.getMainichi();
+			asahi = entity.getAsahi();
 		}catch(NullPointerException e){
 			ArrayList<String> list = new ArrayList<>();
 			list.add("frag_google");
 			list.add("frag_twitter");
 			list.add("frag_nhk");
 			list.add("frag_mainichi");
+			list.add("frag_asahi");
 			return list;
 		}
 
 
-		int[] orderI = { google, twitter, nhk, mainichi };
-		String[] orderS = {"frag_google", "frag_twitter", "frag_nhk", "frag_mainichi", "frag_dummy" };
+		int[] orderI = { google, twitter, nhk, mainichi, asahi};
+		String[] orderS = {"frag_google", "frag_twitter", "frag_nhk", "frag_mainichi", "frag_asahi", "frag_dummy" };
 
 		ArrayList<String> list = new ArrayList<>();
 		for (int i = 0; i < orderS.length; i++) {
@@ -77,6 +80,7 @@ public class MyEyesService {
 					case 1: list.add(orderS[1]);break;
 					case 2: list.add(orderS[2]);break;
 					case 3: list.add(orderS[3]);break;
+					case 4: list.add(orderS[4]);break;
 					}
 				}
 			}
