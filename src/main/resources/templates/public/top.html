@@ -8,7 +8,7 @@
 	<div th:replace="public/temp :: frag_nav"></div>
 	<div class="container">
 
-		<div th:fragment="frag_google">
+		<div th:fragment="frag_google" style="clear: left">
 			<div class="googleIcon" style="margin-top: 30px;">
 				<a href="https://www.google.co.jp/"><img src="../img/Google.png"
 					width="100px" height="50px" alt="Googleのロゴ"
@@ -68,7 +68,7 @@
 			</div>
 		</div>
 
-		<div th:fragment="frag_twitter">
+		<div th:fragment="frag_twitter" style="clear: left">
 			<div class="twIcon" style="margin-top: 30px;">
 				<a href="https://twitter.com"><img src="../img/Twitter.png"
 					width="50px" height="50px" alt="Twitterのロゴ"
@@ -167,7 +167,7 @@
 					th:href="@{/external/nhk(keyword=${nhkInfo[5]})}" target="_blank"
 					th:text=" | ${nhkInfo[5]} |"
 					class="list-group-item list-group-item-action list-group-item-success"
-					style="margin: 10px 0 150px 30px; height: 60px"></a>
+					style="margin: 10px 0 150px 30px; height: 60px; float: left"></a>
 			</div>
 		</div>
 

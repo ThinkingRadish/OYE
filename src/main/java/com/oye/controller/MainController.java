@@ -1,12 +1,14 @@
 package com.oye.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.oye.entity.MyEyesEntityRepository;
 import com.oye.service.AccountService;
 import com.oye.service.GetInfoService;
 
@@ -16,6 +18,8 @@ public class MainController {
 	GetInfoService service;
 	@Autowired
 	AccountService accs;
+	@Autowired
+	MyEyesEntityRepository meeRepository;
 
 	@GetMapping("/top")
 	public String toTop(Model model, Principal principal){
@@ -28,14 +32,23 @@ public class MainController {
 
 		model.addAttribute("time", service.getTime());
 
+		//ログイン ログアウトnavbarの切り替え
 		model.addAttribute("isLogined", accs.isLogined(principal));
-		return "public/top";
+
+		//ログイン時レイアウトの読み込み
+		if(accs.isLogined(principal)){
+			ArrayList<String> list = accs.loadMyEyes(principal);
+
+			model.addAttribute("first", list.get(0));
+			model.addAttribute("second", list.get(1));
+			model.addAttribute("third", list.get(2));
+			model.addAttribute("forth", list.get(3));
+			return "private/top";
+		}else{
+			return "public/top";
+		}
 	}
 
-	@GetMapping("/private/myEyes")
-	public String toMyEyes(Model model, Principal principal){
-		model.addAttribute("isLogined", accs.isLogined(principal));
-		return "private/myEyes";
-	}
+
 
 }

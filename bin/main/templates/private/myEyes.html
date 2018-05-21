@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="public/temp :: frag_head">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="../css/navStyle.css">
+<title>OYE</title>
 </head>
 <body>
 	<div th:replace="public/temp :: frag_nav"></div>
@@ -12,7 +19,7 @@
 			style="text-align: center; font-weight: bold; color: green; margin-top: 50px;">
 			コンテンツの表示順を変更できます。<br> 非表示にしたい場合は「表示しない」を選択してください。
 		</div>
-		<form th:action="@{/public/myEyesResult}" method="post"
+		<form th:action="@{/private/myEyesResult}" method="post"
 			style="text-align: center; margin: auto; width: 200px">
 			<div class="googleIcon"
 				style="margin: 30px auto 0 auto; text-align: center;">
@@ -21,11 +28,11 @@
 			</div>
 
 			<select name="selectGoogle" class="custom-select">
-				<option value="first">1番目</option>
-				<option value="second">2番目</option>
-				<option value="third">3番目</option>
-				<option value="forth">4番目</option>
-				<option value="dummy">表示しない</option>
+				<option value=1>1番目</option>
+				<option value=2>2番目</option>
+				<option value=3>3番目</option>
+				<option value=4>4番目</option>
+				<option value=0>表示しない</option>
 			</select>
 
 			<div class="twitterIcon"
@@ -35,11 +42,11 @@
 			</div>
 
 			<select name="selectTwitter" class="custom-select">
-				<option value="first">1番目</option>
-				<option value="second">2番目</option>
-				<option value="third">3番目</option>
-				<option value="forth">4番目</option>
-				<option value="dummy">表示しない</option>
+				<option value=1>1番目</option>
+				<option value=2>2番目</option>
+				<option value=3>3番目</option>
+				<option value=4>4番目</option>
+				<option value=0>表示しない</option>
 			</select>
 
 			<div class="nhkIcon"
@@ -48,13 +55,12 @@
 					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: green;">NHK</div>
 			</div>
 
-			<select name="
-					selectNHK" class="custom-select">
-				<option value="first">1番目</option>
-				<option value="second">2番目</option>
-				<option value="third">3番目</option>
-				<option value="forth">4番目</option>
-				<option value="dummy">表示しない</option>
+			<select name="selectNHK" class="custom-select">
+				<option value=1>1番目</option>
+				<option value=2>2番目</option>
+				<option value=3>3番目</option>
+				<option value=4>4番目</option>
+				<option value=0>表示しない</option>
 			</select>
 
 			<div class="mainichiIcon"
@@ -64,11 +70,11 @@
 			</div>
 
 			<select name="selectMainichi" class="custom-select">
-				<option value="first">1番目</option>
-				<option value="second">2番目</option>
-				<option value="third">3番目</option>
-				<option value="forth">4番目</option>
-				<option value="dummy">表示しない</option>
+				<option value=1>1番目</option>
+				<option value=2>2番目</option>
+				<option value=3>3番目</option>
+				<option value=4>4番目</option>
+				<option value=0>表示しない</option>
 			</select>
 
 			<button type="submit" class="btn btn-primary"

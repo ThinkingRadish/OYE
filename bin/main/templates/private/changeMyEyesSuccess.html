@@ -6,18 +6,13 @@
 </head>
 <body>
 	<div th:replace="public/temp :: frag_nav"></div>
-	<div class="container">
-
-	<div th:replace="public/top :: ${first}"></div>
-
-	<div th:replace="public/top :: ${second}"></div>
-
-	<div th:replace="public/top :: ${third}"></div>
-
-	<div th:replace="public/top :: ${forth}"></div>
-
+		<div class="content"
+		style="text-align: center; color: green; margin-top: 100px;">
+		コンテンツの表示設定が保存されました。 <br> <a class="btn btn-success" href="/top"
+			role="button" style="margin-top: 100px;">TOP画面へ</a>
 
 	</div>
+
 	<div th:replace="public/temp :: frag_footer"></div>
 	<div th:replace="public/temp :: frag_script"></div>
 </body>
