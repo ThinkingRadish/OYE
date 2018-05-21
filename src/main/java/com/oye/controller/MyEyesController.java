@@ -37,7 +37,7 @@ public class MyEyesController {
 
 			//dbに設定保存処理
 			String username = principal.getName();
-			mes.registerMyEyesLogic(username, google, twitter, nhk, mainichi);
+			mes.registerMyEyes(username, google, twitter, nhk, mainichi);
 
 			return "private/changeMyEyesSuccess";
 		} else {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.oye.entity.MyEyesEntityRepository;
 import com.oye.service.AccountService;
 import com.oye.service.GetInfoService;
+import com.oye.service.MyEyesService;
 
 @Controller
 public class MainController {
@@ -20,6 +21,8 @@ public class MainController {
 	AccountService accs;
 	@Autowired
 	MyEyesEntityRepository meeRepository;
+	@Autowired
+	MyEyesService meService;
 
 	@GetMapping("/top")
 	public String toTop(Model model, Principal principal){
@@ -37,7 +40,7 @@ public class MainController {
 
 		//ログイン時レイアウトの読み込み
 		if(accs.isLogined(principal)){
-			ArrayList<String> list = accs.loadMyEyes(principal);
+			ArrayList<String> list = meService.loadMyEyes(principal);
 
 			model.addAttribute("first", list.get(0));
 			model.addAttribute("second", list.get(1));
