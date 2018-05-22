@@ -29,15 +29,15 @@ public class MyEyesController {
 	@RequestMapping(value = "/private/myEyesResult", method = RequestMethod.POST)
 	public String toMyEyesResult(Model model, Principal principal, @RequestParam("selectGoogle") int google,
 			@RequestParam("selectTwitter") int twitter, @RequestParam("selectNHK") int nhk,
-			@RequestParam("selectMainichi") int mainichi, @RequestParam("selectAsahi")int asahi) {
+			@RequestParam("selectMainichi") int mainichi, @RequestParam("selectAsahi")int asahi, @RequestParam("selectYomiuri")int yomiuri) {
 
 		model.addAttribute("isLogined", accs.isLogined(principal));
 
-		if (mes.isOrderValid(google, twitter, nhk, mainichi, asahi)) {
+		if (mes.isOrderValid(google, twitter, nhk, mainichi, asahi, yomiuri)) {
 
 			//dbに設定保存処理
 			String username = principal.getName();
-			mes.registerMyEyes(username, google, twitter, nhk, mainichi, asahi);
+			mes.registerMyEyes(username, google, twitter, nhk, mainichi, asahi, yomiuri);
 
 			return "private/changeMyEyesSuccess";
 		} else {

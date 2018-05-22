@@ -39,6 +39,8 @@ public class MainController {
 		model.addAttribute("asahiInfo", service.getAsahiInfoLogic());
 		model.addAttribute("asahiLink", service.getAsahiLinkLogic());
 
+		model.addAttribute("yomiuriInfo", service.getYomiuriInfoLogic());
+		model.addAttribute("yomiuriLink", service.getYomiuriLinkLogic());
 
 		model.addAttribute("time", service.getTime());
 
@@ -54,6 +56,7 @@ public class MainController {
 			model.addAttribute("third", list.get(2));
 			model.addAttribute("forth", list.get(3));
 			model.addAttribute("fifth", list.get(4));
+			model.addAttribute("sixth", list.get(5));
 			return "private/top";
 		}else{
 			return "public/top";

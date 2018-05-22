@@ -14,8 +14,8 @@ public class MyEyesService {
 	@Autowired
 	MyEyesEntityRepository meeRepository;
 
-	public boolean isOrderValid(int google, int tw, int nhk, int mai, int asahi) {
-		int[] order = { google, tw, nhk, mai, asahi};
+	public boolean isOrderValid(int google, int tw, int nhk, int mai, int asahi, int yomiuri) {
+		int[] order = { google, tw, nhk, mai, asahi, yomiuri};
 		//重複チェック
 		for (int i = 0; i < order.length; i++) {
 			for (int j = 0; j < order.length; j++) {
@@ -30,8 +30,8 @@ public class MyEyesService {
 		return true;
 	}
 
-	public void registerMyEyes(String username, int google, int twitter, int nhk, int mai, int asahi) {
-		MyEyesEntity entity = new MyEyesEntity(username, google, twitter, nhk, mai, asahi);
+	public void registerMyEyes(String username, int google, int twitter, int nhk, int mai, int asahi, int yomiuri) {
+		MyEyesEntity entity = new MyEyesEntity(username, google, twitter, nhk, mai, asahi, yomiuri);
 		meeRepository.save(entity);
 	}
 
@@ -42,6 +42,7 @@ public class MyEyesService {
 		int nhk;
 		int mainichi;
 		int asahi;
+		int yomiuri;
 
 		//新規ユーザー用デフォルトレイアウト読み込み
 		try{
@@ -50,6 +51,7 @@ public class MyEyesService {
 			nhk = entity.getNhk();
 			mainichi = entity.getMainichi();
 			asahi = entity.getAsahi();
+			yomiuri = entity.getYomiuri();
 		}catch(NullPointerException e){
 			ArrayList<String> list = new ArrayList<>();
 			list.add("frag_google");
@@ -57,12 +59,13 @@ public class MyEyesService {
 			list.add("frag_nhk");
 			list.add("frag_mainichi");
 			list.add("frag_asahi");
+			list.add("frag_yomiuri");
 			return list;
 		}
 
 
-		int[] orderI = { google, twitter, nhk, mainichi, asahi};
-		String[] orderS = {"frag_google", "frag_twitter", "frag_nhk", "frag_mainichi", "frag_asahi", "frag_dummy" };
+		int[] orderI = { google, twitter, nhk, mainichi, asahi, yomiuri};
+		String[] orderS = {"frag_google", "frag_twitter", "frag_nhk", "frag_mainichi", "frag_asahi", "frag_yomiuri", "frag_dummy" };
 
 		ArrayList<String> list = new ArrayList<>();
 		for (int i = 0; i < orderS.length; i++) {
@@ -76,11 +79,12 @@ public class MyEyesService {
 					}
 					//値の順番に対応するフラグメントをリストに加える
 					switch(j){
-					case 0: list.add(orderS[0]);break;
-					case 1: list.add(orderS[1]);break;
-					case 2: list.add(orderS[2]);break;
-					case 3: list.add(orderS[3]);break;
-					case 4: list.add(orderS[4]);break;
+					case 0: list.add(orderS[j]);break;
+					case 1: list.add(orderS[j]);break;
+					case 2: list.add(orderS[j]);break;
+					case 3: list.add(orderS[j]);break;
+					case 4: list.add(orderS[j]);break;
+					case 5: list.add(orderS[j]);break;
 					}
 				}
 			}

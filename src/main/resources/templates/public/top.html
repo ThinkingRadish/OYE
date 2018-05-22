@@ -294,6 +294,69 @@
 					style="margin: 10px 0 150px 30px; height: 60px"></a>
 			</div>
 		</div>
+
+		<div th:fragment="frag_yomiuri">
+			<div class="yomiuriIcon" style="margin-top: 30px; clear: left">
+				<a href="http://www.yomiuri.co.jp/" target="_blank"><img
+					src="../img/yomiuri.jpg" width="200px" height="50px" alt="読売新聞のロゴ"
+					style="float: left; margin-right: 10px;"></a>
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold;">
+					<a href="http://www.yomiuri.co.jp/" target="_blank"
+						style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: black; font-weight: bold; text-decoration: none;">
+						新着ニュース</a>
+				</p>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/yomiuri(keyword=${yomiuriLink[0]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[1]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[2]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[3]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[4]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0px 30px; height: 60px"></a>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/yomiuri(keyword=${yomiuriLink[5]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[6]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[6]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[7]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[7]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[8]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[8]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 0 30px; height: 60px"></a> <a
+					th:href="@{/external/yomiuri(keyword=${yomiuriLink[9]})}"
+					target="_blank" th:text=" | ${yomiuriInfo[9]} |"
+					class="list-group-item list-group-item-action list-group-item-dark active"
+					style="margin: 10px 0 150px 30px; height: 60px"></a>
+			</div>
+		</div>
+
 	</div>
 
 	<div th:fragment="frag_dummy"></div>

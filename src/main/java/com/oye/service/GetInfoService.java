@@ -119,6 +119,23 @@ public class GetInfoService {
 		}
 	}
 
+	public ArrayList<String> getYomiuriInfoLogic(){
+		try{
+			return commonGetMatcher("http://www.yomiuri.co.jp/latestnews/", "<span class=\"headline\">(.+?)<span class=\"update\">", 1);
+		}catch(IOException e){
+			e.printStackTrace();
+			return couldNotConnect();
+		}
+	}
+
+	public ArrayList<String> getYomiuriLinkLogic(){
+		try{
+			return commonGetMatcher("http://www.yomiuri.co.jp/latestnews/", "\".+\"> <a href=\"(.+?)\">", 1);
+		}catch(IOException e){
+			return couldNotConnect();
+		}
+	}
+
 
 
 }

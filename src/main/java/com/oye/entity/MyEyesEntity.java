@@ -15,18 +15,20 @@ public class MyEyesEntity {
 	private int nhk;
 	private int mainichi;
 	private int asahi;
+	private int yomiuri;
 
 	public MyEyesEntity() {
 
 	}
 
-	public MyEyesEntity(String username, int google, int twitter, int nhk, int mainichi, int asahi){
+	public MyEyesEntity(String username, int google, int twitter, int nhk, int mainichi, int asahi, int yomiuri) {
 		this.username = username;
 		this.google = google;
 		this.twitter = twitter;
 		this.nhk = nhk;
 		this.mainichi = mainichi;
 		this.asahi = asahi;
+		this.yomiuri = yomiuri;
 	}
 
 	public String getUsername() {
@@ -77,8 +79,12 @@ public class MyEyesEntity {
 		this.asahi = asahi;
 	}
 
+	public int getYomiuri() {
+		return yomiuri;
+	}
 
-
-
+	public void setYomiuri(int yomiuri) {
+		this.yomiuri = yomiuri;
+	}
 
 }
