@@ -68,4 +68,16 @@ public class EtcController {
 	public String toExternalYomiuri(@RequestParam("keyword") String keyword){
 		return "redirect:" + keyword;
 	}
+
+	@GetMapping("/external/sankei")
+	public String toExternalSankei(@RequestParam("keyword") String keyword){
+		return "redirect:https://www.sankei.com/" + keyword;
+	}
+
+	@GetMapping("/external/nikkei")
+	public String toExternalNikkei(@RequestParam("keyword") String keyword){
+		return "redirect:https://www.nikkei.com/article" + keyword;
+	}
+
+
 }

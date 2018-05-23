@@ -42,6 +42,12 @@ public class MainController {
 		model.addAttribute("yomiuriInfo", service.getYomiuriInfoLogic());
 		model.addAttribute("yomiuriLink", service.getYomiuriLinkLogic());
 
+		model.addAttribute("sankeiInfo", service.getSankeiInfoLogic());
+		model.addAttribute("sankeiLink", service.getSankeiLinkLogic());
+
+		model.addAttribute("nikkeiInfo", service.getNikkeiInfoLogic());
+		model.addAttribute("nikkeiLink", service.getNikkeiLinkLogic());
+
 		model.addAttribute("time", service.getTime());
 
 		//ログイン ログアウトnavbarの切り替え
@@ -57,6 +63,8 @@ public class MainController {
 			model.addAttribute("forth", list.get(3));
 			model.addAttribute("fifth", list.get(4));
 			model.addAttribute("sixth", list.get(5));
+			model.addAttribute("seventh", list.get(6));
+			model.addAttribute("eighth", list.get(7));
 			return "private/top";
 		}else{
 			return "public/top";

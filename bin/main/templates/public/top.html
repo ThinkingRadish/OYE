@@ -357,6 +357,130 @@
 			</div>
 		</div>
 
+		<div th:fragment="frag_sankei">
+			<div class="sankeiIcon" style="margin-top: 30px; clear: left">
+				<a href="https://www.sankei.com/" target="_blank"><img
+					src="../img/sankei.jpeg" width="250px" height="50px" alt="産経新聞のロゴ"
+					style="float: left; margin-right: 10px;"></a>
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold;">
+					<a href="https://www.sankei.com/" target="_blank"
+						style="font-family: fantasy; font-size: 30px; padding-top: 10px; color: black; font-weight: bold; text-decoration: none;">
+						速報</a>
+				</p>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/sankei(keyword=${sankeiLink[0]})}"
+					target="_blank" th:text=" | ${sankeiInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[1]})}"
+					target="_blank" th:text=" | ${sankeiInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[2]})}"
+					target="_blank" th:text=" | ${sankeiInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[3]})}"
+					target="_blank" th:text=" | ${sankeiInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[4]})}"
+					target="_blank" th:text=" | ${sankeiInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0px 30px; height: 70px"></a>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/sankei(keyword=${sankeiLink[5]})}"
+					target="_blank" th:text=" | ${sankeiInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[6]})}"
+					target="_blank" th:text=" | ${sankeiInfo[6]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[7]})}"
+					target="_blank" th:text=" | ${sankeiInfo[7]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[8]})}"
+					target="_blank" th:text=" | ${sankeiInfo[8]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/sankei(keyword=${sankeiLink[9]})}"
+					target="_blank" th:text=" | ${sankeiInfo[9]} |"
+					class="list-group-item list-group-item-action list-group-item-primary active"
+					style="margin: 10px 0 150px 30px; height: 70px"></a>
+			</div>
+		</div>
+
+		<div th:fragment="frag_nikkei">
+			<div class="nikkeiIcon" style="margin-top: 30px; clear: left">
+				<a href="https://www.nikkei.com/" target="_blank"><img
+					src="../img/nikkei.png" width="300px" height="50px" alt="日本経済新聞のロゴ"
+					style="float: left; margin-right: 10px;"></a>
+				<p
+					style="font-family: fantasy; font-size: 25px; padding-top: 8px; color: #5a90e8; font-weight: bold;">
+					<a href="https://www.nikkei.com/" target="_blank"
+						style="font-family: fantasy; font-size: 30px; padding-top: 10px; color: black; font-weight: bold; text-decoration: none;">
+						速報</a>
+				</p>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/nikkei(keyword=${nikkeiLink[0]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[0]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[1]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[1]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[2]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[2]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[3]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[3]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[4]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[4]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0px 30px; height: 70px"></a>
+			</div>
+
+			<div class="list-group col-sm-4"
+				style="max-width: 400px; float: left; margin-right: 100px">
+				<a th:href="@{/external/nikkei(keyword=${nikkeiLink[5]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[5]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[6]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[6]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[7]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[7]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[8]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[8]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 0 30px; height: 70px"></a> <a
+					th:href="@{/external/nikkei(keyword=${nikkeiLink[9]})}"
+					target="_blank" th:text=" | ${nikkeiInfo[9]} |"
+					class="list-group-item list-group-item-action list-group-item-secondary active"
+					style="margin: 10px 0 150px 30px; height: 70px"></a>
+			</div>
+		</div>
+
 	</div>
 
 	<div th:fragment="frag_dummy"></div>

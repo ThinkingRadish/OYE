@@ -14,8 +14,8 @@ public class MyEyesService {
 	@Autowired
 	MyEyesEntityRepository meeRepository;
 
-	public boolean isOrderValid(int google, int tw, int nhk, int mai, int asahi, int yomiuri) {
-		int[] order = { google, tw, nhk, mai, asahi, yomiuri};
+	public boolean isOrderValid(int google, int tw, int nhk, int mai, int asahi, int yomiuri, int sankei, int nikkei) {
+		int[] order = { google, tw, nhk, mai, asahi, yomiuri, sankei, nikkei};
 		//重複チェック
 		for (int i = 0; i < order.length; i++) {
 			for (int j = 0; j < order.length; j++) {
@@ -30,8 +30,8 @@ public class MyEyesService {
 		return true;
 	}
 
-	public void registerMyEyes(String username, int google, int twitter, int nhk, int mai, int asahi, int yomiuri) {
-		MyEyesEntity entity = new MyEyesEntity(username, google, twitter, nhk, mai, asahi, yomiuri);
+	public void registerMyEyes(String username, int google, int twitter, int nhk, int mai, int asahi, int yomiuri, int sankei, int nikkei) {
+		MyEyesEntity entity = new MyEyesEntity(username, google, twitter, nhk, mai, asahi, yomiuri, sankei, nikkei);
 		meeRepository.save(entity);
 	}
 
@@ -43,6 +43,8 @@ public class MyEyesService {
 		int mainichi;
 		int asahi;
 		int yomiuri;
+		int sankei;
+		int nikkei;
 
 		//新規ユーザー用デフォルトレイアウト読み込み
 		try{
@@ -52,6 +54,8 @@ public class MyEyesService {
 			mainichi = entity.getMainichi();
 			asahi = entity.getAsahi();
 			yomiuri = entity.getYomiuri();
+			sankei = entity.getSankei();
+			nikkei = entity.getNikkei();
 		}catch(NullPointerException e){
 			ArrayList<String> list = new ArrayList<>();
 			list.add("frag_google");
@@ -60,12 +64,14 @@ public class MyEyesService {
 			list.add("frag_mainichi");
 			list.add("frag_asahi");
 			list.add("frag_yomiuri");
+			list.add("frag_sankei");
+			list.add("frag_nikkei");
 			return list;
 		}
 
 
-		int[] orderI = { google, twitter, nhk, mainichi, asahi, yomiuri};
-		String[] orderS = {"frag_google", "frag_twitter", "frag_nhk", "frag_mainichi", "frag_asahi", "frag_yomiuri", "frag_dummy" };
+		int[] orderI = { google, twitter, nhk, mainichi, asahi, yomiuri, sankei, nikkei};
+		String[] orderS = {"frag_google", "frag_twitter", "frag_nhk", "frag_mainichi", "frag_asahi", "frag_yomiuri", "frag_sankei", "frag_nikkei", "frag_dummy" };
 
 		ArrayList<String> list = new ArrayList<>();
 		for (int i = 0; i < orderS.length; i++) {
@@ -85,6 +91,8 @@ public class MyEyesService {
 					case 3: list.add(orderS[j]);break;
 					case 4: list.add(orderS[j]);break;
 					case 5: list.add(orderS[j]);break;
+					case 6: list.add(orderS[j]);break;
+					case 7: list.add(orderS[j]);break;
 					}
 				}
 			}
