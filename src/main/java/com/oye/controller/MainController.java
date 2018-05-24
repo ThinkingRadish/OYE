@@ -24,7 +24,7 @@ public class MainController {
 	@Autowired
 	MyEyesService meService;
 
-	@GetMapping("/top")
+	@GetMapping({"/top","/"})
 	public String toTop(Model model, Principal principal){
 
 		model.addAttribute("twInfo", service.getTwInfoLogic());

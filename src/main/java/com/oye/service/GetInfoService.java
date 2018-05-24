@@ -94,7 +94,7 @@ public class GetInfoService {
 
 	public ArrayList<String> getMainichiInfoLogic() {
 		try {
-			return commonGetByTag("http://rss.rssad.jp/rss/mainichi/flash.rss", "title", 10);
+			return commonGetByTag("https://mainichi.jp/rss/etc/mainichi-flash.rss", "title", 10);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return couldNotConnect("情報を取得できませんでした。");
@@ -107,7 +107,7 @@ public class GetInfoService {
 
 	public ArrayList<String> getMainichiLinkLogic() {
 		try {
-			return commonGetByTag("http://rss.rssad.jp/rss/mainichi/flash.rss", "Link", 10);
+			return commonGetByTag("https://mainichi.jp/rss/etc/mainichi-flash.rss", "Link", 10);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return couldNotConnect("情報を取得できませんでした。");
