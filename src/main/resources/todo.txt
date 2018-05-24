@@ -1,20 +1,22 @@
-・db_role作成 properties_user変更
 
 ・自動db&table作成？ properties_update
 
 ・dbパスワード隠蔽
 
-・主要情報サイトの追加
-
-・ログイン時の付加機能 /独自のレイアウト設定 /画像を共に /
+・画像を共に
 
 ・非同期による高速化
 
-・サイトについて記載
 
 ・todotext削除
 
+//主要情報サイトの追加 ok
 
+//ログイン時の付加機能 /独自のレイアウト設定 ok
+
+//サイトについて記載 ok
+
+//db_role作成 properties_user変更 ok
 
 //ログイン ログアウト ok
 
